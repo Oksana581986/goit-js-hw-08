@@ -12,7 +12,7 @@ const saveCurrentTime = (currentTime) => {
 
 const loadCurrentTime = () => {
     const currentTime = localStorage.getItem(localStorageKey);
-    if (currentTime !== null) {
+    if (currentTime) {
         player.setCurrentTime(parseFloat(currentTime));
     }
 };
@@ -25,5 +25,4 @@ player.on('timeupdate', (data) => {
 
 player.ready().then(() => {
     loadCurrentTime();
-    player.play();
 });
